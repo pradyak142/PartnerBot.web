@@ -467,6 +467,48 @@
       font-size: 1rem; line-height: 1.65; position: relative;
     }
 
+    
+    /* ── LEGAL ── */
+    .legal {
+      padding: 100px 24px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .legal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 50px;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .legal-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .legal-card h3 {
+      font-family: 'Syne', sans-serif;
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+    }
+
+    .legal-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -505,6 +547,8 @@
       .steps .step:last-child  { border-radius: 0 0 14px 14px; }
       .step + .step { border-left: none; border-top: 1px solid var(--border); }
       .features-grid { grid-template-columns: 1fr; }
+      .legal-grid { grid-template-columns: 1fr; }
+      .legal-box { padding: 32px 22px; }
       .cta-box { padding: 48px 24px; }
       footer { flex-direction: column; gap: 14px; text-align: center; }
       .command-item { flex-direction: column; gap: 6px; }
@@ -710,13 +754,51 @@
   </div>
 </section>
 
+
+<!-- PRIVACY & TERMS -->
+<section class="legal" id="legal">
+  <div class="legal-box reveal">
+    <div class="section-label">Legal</div>
+    <div class="section-title">Privacy Policy & Terms of Service</div>
+
+    <div class="legal-grid">
+      <div class="legal-card">
+        <h3>Privacy Policy</h3>
+        <p>
+          PartnerBot only stores the minimum data required to operate the partnership system,
+          including server IDs, channel IDs, role IDs, and partnership configuration settings.
+          No private messages are collected or stored.
+        </p>
+        <p>
+          We do not sell your data or share server information with third parties.
+          Data may be removed anytime by removing the bot from your server.
+        </p>
+      </div>
+
+      <div class="legal-card">
+        <h3>Terms of Service</h3>
+        <p>
+          By using PartnerBot, you agree not to abuse, spam, exploit, or misuse the partnership network.
+          Servers violating Discord Terms or Community Guidelines may be removed from the network.
+        </p>
+        <p>
+          PartnerBot is provided "as is" without guarantees of uptime or uninterrupted service.
+          Features may change or be updated at any time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- FOOTER -->
 <footer>
   <span>🤝 PartnerBot — Free Auto Partnership Bot</span>
-  <div style="display:flex;gap:24px;">
+  <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
     <a href="https://discord.com/oauth2/authorize?client_id=1504833900017619034&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">Add Bot</a>
     <a href="#commands">Commands</a>
     <a href="#how">How it works</a>
+    <a href="#legal">Privacy & Terms</a>
   </div>
 </footer>
 
@@ -784,7 +866,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // ── LIVE STATS ─────────────────────────────────────────────────────────────
 // Replace with your Railway domain
 // e.g. https://partnerbot-production.up.railway.app/api/stats
-const STATS_API = 'partnerbot-production.up.railway.app';
+const STATS_API = 'YOUR_RAILWAY_URL/api/stats';
 
 function formatNum(n) {
   if (n >= 1_000_000) return (n/1_000_000).toFixed(1)+'M';
